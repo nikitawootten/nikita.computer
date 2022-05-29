@@ -2,9 +2,10 @@
 <html lang="en">
 {{ partial "head.html" . }}
 <body>
-    {{ partial "nav.html" . }}
+    {{ partial "nav.html" .Site.Data.menus.main }}
     <div class="container">
         <main id="main">
+            {{ partial "breadcrumb.html" . }}
             {{ block "main" . }}{{ end }}
         </main>
     </div>
