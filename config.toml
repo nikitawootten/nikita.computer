@@ -1,0 +1,42 @@
+baseURL = "https://nikita.computer"
+languageCode = "en-us"
+title = "Hugo Blog"
+
+[author]
+  name = "Nikita Wootten"
+
+[permalinks]
+  blog = "/:year/:month/:day/:filename/"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Blog"
+    pre = "edit"
+    url = "/blog/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    pre = "tag"
+    url = "/tags/"
+    weight = 3
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  dateFormat = "Jan 2, 2006"
+  homeText = "You just made a Hugo blog from scratch."
+
+[sitemap]
+  # https://djangocas.dev/blog/hugo/tips-on-hugo-seo/
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+pygmentsCodefences = true
+pygmentsStyle = "murphy"
