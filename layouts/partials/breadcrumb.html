@@ -1,6 +1,8 @@
+{{ if not .IsHome }}
 <ul class="breadcrumb">
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
 </ul>
+{{ end }}
 
 {{ define "breadcrumbnav" }}
     {{ if .p1.Parent }}

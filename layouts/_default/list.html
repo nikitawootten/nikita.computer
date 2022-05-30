@@ -7,15 +7,12 @@
     
     {{ range .Pages.ByPublishDate.Reverse }}
         <article>
-            <div>
+            <header>
                 <h2>
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h2>
-                <p>
-                    {{ partial "date-and-tags.html" . }}
-                </p>
-                {{ .Summary }}
-            </div>
+            </header>
+            {{ .Summary }}
             {{ if .Truncated }}
                 <div>
                     <a href="{{ .RelPermalink }}">Read more...</a>

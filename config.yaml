@@ -1,6 +1,6 @@
 baseURL: https://nikita.computer
 languageCode: en-us
-title: Hugo Blog
+title: Nikita Wootten
 author:
   name: Nikita Wootten
 permalinks:
@@ -9,8 +9,7 @@ taxonomies:
   tag: tags
 params:
   dateFormat: Jan 2, 2006
-  homeText: A hugo blog
-  license: The content for this site is [CC-BY](https://creativecommons.org/licenses/by/2.0/), the [code](https://github.com/nikitawootten/nikitawootten.github.io) is [MIT](https://github.com/nikitawootten/nikitawootten.github.io/blob/main/LICENSE)
+  license: The content for this site is [CC-BY 2.0](https://creativecommons.org/licenses/by/2.0/), the [code](https://github.com/nikitawootten/nikitawootten.github.io) is [MIT](https://github.com/nikitawootten/nikitawootten.github.io/blob/main/LICENSE)
 sitemap:
   changefreq: weekly
   filename: sitemap.xml

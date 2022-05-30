@@ -2,4 +2,4 @@
 title: About Me
 ---
 
-Hello
+Hello! My name is Nikita Wootten.
