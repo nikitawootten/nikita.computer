@@ -3,11 +3,3 @@
 {{ if .PublishDate }}
     <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
 {{end}}
-{{ with .Params.tags }}
-<br>
-<i data-feather="tag"></i>
-{{ range . }}
-{{ $href := print (relURL "tags/") (urlize .) }}
-<a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>
-{{ end }}
-{{ end }}

@@ -5,20 +5,12 @@
     </heading>
     {{ .Content }}
     
-    {{ range .Pages.ByPublishDate.Reverse }}
-        <article>
-            <header>
-                <h2>
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h2>
-            </header>
-            {{ .Summary }}
-            {{ if .Truncated }}
-                <div>
-                    <a href="{{ .RelPermalink }}">Read more...</a>
-                </div>
-            {{ end }}
-        </article>
-    {{ end }}
+    <ul>
+        {{ range .Pages.ByPublishDate.Reverse }}
+            <li>
+                {{ partial "date.html" . }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+        {{ end }}
+    </ul>
 </article>
 {{ end }}

@@ -1,0 +1,7 @@
+{{ with .Params.tags }}
+<br>
+{{ range . }}
+    {{ $href := print (relURL "tags/") (urlize .) }}
+    <a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>
+{{ end }}
+{{ end }}

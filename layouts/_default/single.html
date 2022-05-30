@@ -3,7 +3,8 @@
     <header>
         <h1>{{ .Title }}</h1>
     </header>
-    {{ partial "date-and-tags.html" . }}
+    {{ partial "date.html" . }}
+    {{ partial "tags.html" . }}
     {{ .Content }}
 </article>
 {{ end }}
