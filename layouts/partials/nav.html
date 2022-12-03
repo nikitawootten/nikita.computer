@@ -1,8 +1,6 @@
-<div id="nav-border" class="container">
-    <nav id="nav" class="nav justify-content-center">
-        {{ range . }}
-        {{ $text := print .name | safeHTML }}
-        <a class="nav-link" href="{{ .url }}">{{ $text }}</a>
-        {{ end }}
-    </nav>
-</div>
+<nav id="nav">
+    {{ range . }}
+    {{ $text := print .name | safeHTML }}
+    <a class="nav-link" href="{{ .url }}">{{ $text }}</a>
+    {{ end }}
+</nav>

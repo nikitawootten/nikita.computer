@@ -105,7 +105,7 @@ Many of my roles depend on a small utility I wrote that mimics Stow with Ansible
 The `dotfiles` role (which you can see [here](https://github.com/nikitawootten/.dotfiles/tree/master/roles/dotfiles)) scans a role for configuration files, and symlinks to resulting files to the appropriate location.
 
 My ZSH role can then ensure all of my ZSH configuration has made it by invoking the `dotfiles` role:
-```
+```yaml
 # .dotfiles/roles/zsh/tasks/main.yaml
 ...
 - name: Symlink zsh dotfiles
@@ -120,7 +120,7 @@ At the root of my dotfiles repository I have playbooks set up for each of my mac
 Each playbook includes the roles which define the capabilities I need for the machine.
 
 My laptop's configuration looks like this:
-```
+```yaml
 # .dotfiles/casper-magi.yaml
 ---
 - name: Set up casper-magi

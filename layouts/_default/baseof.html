@@ -2,8 +2,8 @@
 <html lang="en">
 {{ partial "head.html" . }}
 <body>
-    {{ partial "nav.html" .Site.Data.menus.main }}
     <div class="container">
+        {{ partial "nav.html" .Site.Data.menus.main }}
         <main id="main">
             {{ partial "breadcrumb.html" . }}
             {{ block "main" . }}{{ end }}
