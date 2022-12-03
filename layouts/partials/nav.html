@@ -1,6 +1,0 @@
-<nav id="nav">
-    {{ range . }}
-    {{ $text := print .name | safeHTML }}
-    <a class="nav-link" href="{{ .url }}">{{ $text }}</a>
-    {{ end }}
-</nav>
