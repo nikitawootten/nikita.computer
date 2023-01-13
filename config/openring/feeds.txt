@@ -2,3 +2,5 @@ https://drewdevault.com/blog/index.xml
 https://xeiaso.net/blog.rss
 https://xn--gckvb8fzb.com/index.xml
 https://theevilskeleton.gitlab.io/feed.xml
+https://rosszurowski.com/index.xml
+https://bananamafia.dev/index.xml
