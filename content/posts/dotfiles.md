@@ -24,11 +24,11 @@ Consolidating and codifying all of my configuration into a single source of trut
 3. I get all the benefits of revision control.
    If I'm tinkering with a configuration file and something breaks, I can tell exactly what I changed and when I changed it.
 
-# My dotfiles journey
+## My dotfiles journey
 
 But first, a bit about the things I tried before settling on my current system.
 
-## First attempt
+### First attempt
 
 My first attempt at managing my dotfiles involved a bash script that precariously symlinked files from my dotfiles repository:
 
@@ -44,7 +44,7 @@ My laptop and desktop machines at the time had vastly different configurations, 
 
 I needed an approach that lended itself well to having multiple machines with some distinct configuration.
 
-## Second attempt: grouping configuration files together and GNU Stow
+### Second attempt: grouping configuration files together and GNU Stow
 
 [Stow](https://www.gnu.org/software/stow/) is a symlink manager that can be used pretty easily to manage dotfiles.
 With Stow, I could group my configuration files for a given piece of software or a machine into its own directory, and apply it all at once.
@@ -61,7 +61,7 @@ The problem, is that although my configuration files are managed with Stow, ther
 
 I needed a solution that manages all aspects of the state of a given machine.
 
-# Introducing Ansible
+## Introducing Ansible
 
 [Ansible](https://www.ansible.com/) is a really powerful tool that can be used to automate all sorts of systems.
 
@@ -69,7 +69,7 @@ Ansible is built on a principle of idempotentcy, meaning if Ansible is run twice
 This is a great fit for dotfiles.
 As my system evolves, I can commit a change on one system, distribute it to the other machines, and update their configuration without worrying about things breaking.
 
-## Organizing capabilities into Ansible roles
+### Organizing capabilities into Ansible roles
 
 Like I had with Stow, Ansible allows you to group together reusable pieces of configuration into _roles_.
 Under the `roles/` directory, I could have specific configurations for a given capability I want that machine to have.
@@ -102,7 +102,7 @@ _Note: I omitted some lines that I use to check if the Git configuration changed
 
 Roles can also depend on other roles, ensuring for example that the role that the role that sets up my Yubikey/GPG configuration is run before the role that sets up my SSH client configuration.
 
-## The `dotfiles` role
+### The `dotfiles` role
 
 Many of my roles depend on a small utility I wrote that mimics Stow with Ansible.
 
@@ -118,7 +118,7 @@ My ZSH role can then ensure all of my ZSH configuration has made it by invoking 
     name: nikitawootten.dotfiles
 ```
 
-## System playbooks
+### System playbooks
 
 At the root of my dotfiles repository I have playbooks set up for each of my machines.
 Each playbook includes the roles which define the capabilities I need for the machine.
@@ -139,7 +139,7 @@ My laptop's configuration looks like this:
     - update-script
 ```
 
-## The `update-script` role
+### The `update-script` role
 
 The `update-script` role is another utility role I wrote which creates a script that can be run to update the machine.
 This role prevents me from accidentally running the wrong playbook after setting up a machine.

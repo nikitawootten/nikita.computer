@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-FEEDLIST=config/openring/feeds.txt
-INPUT_TEMPLATE=config/openring/openring_template.html
-OUTPUT=layouts/partials/openring.html
+FEEDLIST=$1
+INPUT_TEMPLATE=$2
 
 readarray -t FEEDS < $FEEDLIST
 
@@ -14,4 +13,4 @@ do
    OPENRING_ARGS="$OPENRING_ARGS -s $FEED"
 done
 
-openring $OPENRING_ARGS < $INPUT_TEMPLATE > $OUTPUT
+openring $OPENRING_ARGS < $INPUT_TEMPLATE
