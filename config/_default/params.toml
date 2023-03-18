@@ -46,7 +46,7 @@ enableCodeCopy = true
   showTableOfContents = true
   showTaxonomies = true
   showWordCount = true
-  showComments = false
+  showComments = true
   sharingLinks = ["mastodon", "reddit", "linkedin", "email"]
 
 [list]
