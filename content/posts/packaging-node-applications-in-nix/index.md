@@ -82,9 +82,9 @@ I now have a `package.json`, `yarn.lock`, and `yarn.nix`, but how do I go about 
 
 ### Creating the derivation
 
-Our Nix derivation needs to:
-1. Download all Javascript dependencies (our `node_modules/` folder) to the output folder.
-2. Create a script that invokes our application's starting point.
+My Nix derivation needs to:
+1. Download all Javascript dependencies (the `node_modules/` folder) to the output folder.
+2. Create a script that invokes my application's starting point.
 
 Step 1 is fairly easy using the [mkYarnModules](https://nixos.org/manual/nixpkgs/stable/#mkYarnModules) helper.
 The following Nix expression produces a derivation that downloads all our dependencies to a `node_modules/` folder:
@@ -122,14 +122,16 @@ pkgs.stdenv.mkDerivation {
   nativeBuildInputs = with pkgs; [ ];
   buildInputs = with pkgs; [ ];
 
-  # 1. Copy the node modules folder from the mkYarnModules derivation
-  # 2. Create a script that invokes oscal-deep-diff's cli entrypoint
-  installPhase = ''
+  # Grab the dependencies from the above mkYarnModules derivation
+  configurePhase = ''
     mkdir -p $out/bin
-    cp -r ${deps}/node_modules $out
+    ln -s ${deps}/node_modules $out
+  '';
 
+  # Write a script to the output folder that invokes the entrypoint of the application
+  installPhase = ''
     cat <<EOF > $out/bin/oscal-deep-diff
-    #!/usr/bin/env node
+    #!${pkgs.nodejs}/bin/node
     require('$out/node_modules/@oscal/oscal-deep-diff/lib/cli/cli.js');
     EOF
 
@@ -141,7 +143,10 @@ pkgs.stdenv.mkDerivation {
 }
 ```
 
-In our install phase we copy the `node_modules/` folder from the `mkYarnModules` derivation and then produce a script that invokes the entrypoint of the application.
+In the configure phase the derivation creates a symbolic link to the `node_modules/` folder created from the `deps` variable (the `mkYarnModules` call)/
+
+In the install phase the derivation produces a script that invokes the entrypoint of the application.
+Also notice that the [shebang](https://bash.cyberciti.biz/guide/Shebang) of the script points to `${pkgs.nodejs}/bin/node`, which is the version of node packaged by the `pkgs.nodejs` derivation.
 
 ### Testing the derivation
 
