@@ -5,3 +5,4 @@ https://theevilskeleton.gitlab.io/feed.xml
 https://rosszurowski.com/index.xml
 https://bananamafia.dev/index.xml
 https://billhunt.dev/feed.xml
+https://jvns.ca/atom.xml
