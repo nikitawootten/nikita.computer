@@ -29,6 +29,7 @@ The application in question is [OSCAL-deep-diff](https://github.com/usnistgov/os
 *Disclaimer: Although I am the author and current maintainer of OSCAL-deep-diff, and while I work on this project as part of my job, this is not an official package endorsed by my organization.*
 
 Packaging an application with Nix (especially with flakes) provides some really cool properties:
+
 * You can reuse the package in other places easily (including other flakes).
 * If packaged properly, you can run the package from anywhere Nix is installed using [`nix run`](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-run.html).
 
@@ -73,6 +74,7 @@ In my package directory I can create a `package.json`:
 Running `yarn` produces a lockfile containing the versions of all my package's dependencies, which can then be transformed into a Nix expression using [`yarn2nix`](https://nixos.org/manual/nixpkgs/stable/#yarn2nix).
 
 In Nix this is as easy as running:
+
 ```bash
 # Run the command `yarn2nix` in an environment with the package `yarn2nix`
 $ nix-shell -p yarn2nix --command yarn2nix
@@ -83,11 +85,13 @@ I now have a `package.json`, `yarn.lock`, and `yarn.nix`, but how do I go about 
 ### Creating the derivation
 
 My Nix derivation needs to:
+
 1. Download all Javascript dependencies (the `node_modules/` folder) to the output folder.
 2. Create a script that invokes my application's starting point.
 
 Step 1 is fairly easy using the [mkYarnModules](https://nixos.org/manual/nixpkgs/stable/#mkYarnModules) helper.
 The following Nix expression produces a derivation that downloads all our dependencies to a `node_modules/` folder:
+
 ```Nix
 # assuming the package name (pname), version, and nixpkgs as an input
 pkgs.mkYarnModules {

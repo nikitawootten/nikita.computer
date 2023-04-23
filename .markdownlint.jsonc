@@ -1,0 +1,8 @@
+{
+    // No hard tabs: great until someone copies your makefile
+    "MD010": false,
+    "MD013": false,
+    "MD033": false,
+    // Some markdown documents are used as fragments, no need for a heading
+    "MD041": false
+}

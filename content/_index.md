@@ -1,1 +1,3 @@
-*This site is **very** much a work-in-progress, so check back later, you may find something interesting :)*
+##### **\<insert programming language\>** tolerator, DevOps and InfoSec practitioner, and homelab hobbyist
+
+<sub>*Opinions expressed on this site are my own and do not necessarily reflect those of my employer.*</sub>
