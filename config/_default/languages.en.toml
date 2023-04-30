@@ -15,7 +15,7 @@ dateFormat = "2 January 2006"
 [author]
   name = "Nikita Wootten"
   image = "img/lucya.png"
-  # headline = "I'm only human"
+  headline = "**{insert programming language}** tolerator, DevOps and InfoSec practitioner, and homelab hobbyist"
   # bio = "A little bit about you"
   links = [
     { email = "mailto:stdin@nikita.computer" },
