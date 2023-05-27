@@ -3,13 +3,13 @@ name: github pages
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main # Set a branch to deploy
   pull_request:
   workflow_dispatch: {}
   # deploy bi-weekly (updates openring)
   schedule:
-    - cron: '0 0 * * MON'
-    - cron: '0 0 * * THU'
+    - cron: "0 0 * * MON"
+    - cron: "0 0 * * THU"
 
 jobs:
   deploy:
@@ -17,22 +17,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - uses: cachix/install-nix-action@v20
         with:
-          hugo-version: 'latest'
-          # extended: true
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Openring
-        run: go install git.sr.ht/~sircmpwn/openring@latest
+      - uses: cachix/cachix-action@v12
+        with:
+          name: devenv
 
-      - name: Build
-        run: |
-          export PATH=$PATH:$HOME/go/bin
-          make build-prod
+      - name: Install devenv.sh
+        run: nix profile install github:cachix/devenv/latest
+        shell: sh
+      - run: devenv ci
+
+      - run: devenv shell make build-prod
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

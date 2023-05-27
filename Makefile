@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 openring_output := layouts/partials/openring.html
 openring_feeds := config/openring/feeds.txt
