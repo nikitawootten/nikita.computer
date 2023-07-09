@@ -2,7 +2,7 @@
 title: "Configuring my Congo themed Hugo blog to use Openring"
 date: 2022-12-03T18:26:40-05:00
 draft: false
-tags: [hugo, meta, tutorial]
+tags: [hugo, meta, tutorial, makefile]
 ---
 
 I really like Drew DeVault's [Openring](https://git.sr.ht/~sircmpwn/openring), an elegant utility that generates links to blogs that I follow under my posts (scroll to the end of this article, you may find something you like!).
