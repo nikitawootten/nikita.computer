@@ -3,8 +3,3 @@ public
 /resources/_gen/
 
 /layouts/partials/openring.html
-
-# Devenv
-.devenv*
-devenv.local.nix
-.direnv/

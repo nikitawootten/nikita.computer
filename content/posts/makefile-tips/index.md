@@ -5,7 +5,10 @@ draft: false
 tags: [makefile, nix, tips]
 ---
 
+{{< lead >}}
 I have a secret: I adore Makefiles.
+{{< /lead >}}
+
 I'll admit, the syntax is a bit arcane, and if you don't know what you're doing you can create some really insidious bugs, but once things are set up you can really improve the developer experience on your projects likely without requiring developers to install any [additional tools](https://github.com/casey/just).
 In this post I'd like to share some tips I've gathered for making your Makefiles more effective.
 

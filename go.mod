@@ -1,4 +1,4 @@
-module github.com/nikitawootten/nikitawootten.github.io
+module github.com/nikitawootten/nikita.computer
 
 go 1.19
 
